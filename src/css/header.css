@@ -1,0 +1,154 @@
+.header-page {
+  padding: 20px 0;
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-family: var(--second-font-family);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.header-logo span {
+  color: var(--accent-color);
+}
+
+.header-menu-list {
+  display: none;
+}
+
+.mob-menu-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+}
+
+.menu-btn {
+  display: block;
+  position: relative;
+  width: 26px;
+  height: 1.5px;
+  background-color: var(--text-color);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  cursor: pointer;
+}
+
+.menu-btn:before,
+.menu-btn:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 26px;
+  height: 2px;
+  left: 0;
+  background-color: var(--text-color);
+  transition: all 0.5s;
+}
+
+.menu-btn:before {
+  top: -6px;
+}
+
+.menu-btn:after {
+  top: 6px;
+}
+
+.menu-btn.open {
+  transform: rotate(225deg);
+}
+
+.menu-btn.open:before,
+.menu-btn.open:after {
+  top: 0px;
+}
+
+.menu-btn.open:after {
+  transform: rotate(90deg);
+  width: 26px;
+}
+
+.mob-menu {
+  position: fixed;
+  width: 100vw;
+  height: 92vh;
+  top: 64px;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-100%);
+  background-color: var(--main-background);
+  background-image: url(../img/decor/decor_mob_menu.png);
+  z-index: 5;
+  transition: transform var(--transition), opacity var(--transition),
+    visibility var(--transition);
+}
+
+.mob-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0px);
+  pointer-events: auto;
+}
+
+.mob-menu-link,
+.header-menu-link {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.mob-menu-item:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+/* -----------------------media----------------------- */
+
+@media screen and (min-width: 768px) {
+  .header-page {
+    padding: 32px 0;
+  }
+
+  .header-logo {
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  .mob-menu-btn {
+    display: none;
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .header-menu-list {
+    display: flex;
+    gap: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header-nav {
+    gap: 40px;
+  }
+}
